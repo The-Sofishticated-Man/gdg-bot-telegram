@@ -1,0 +1,14 @@
+{
+  "name": "abdou",
+  "version": "1.0.0",
+  "description": "idk",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"hi\""
+  },
+  "author": "islam lameche",
+  "license": "ISC",
+  "dependencies": {
+    "telegraf": "^4.16.3"
+  }
+}
