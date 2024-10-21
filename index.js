@@ -1,16 +1,30 @@
-const { Telegraf } = require("telegraf");
-const { message } = require("telegraf/filters");
+const { Telegraf, Markup, Context } = require("telegraf");
 const dotenv = require("dotenv");
+const { keyboard, inlineKeyboard } = require("telegraf/markup");
 dotenv.config();
 const token = process.env.BOT_TOKEN;
-console.log(token);
 const bot = new Telegraf(token);
-bot.start((ctx) => ctx.reply("Welcome"));
-bot.help((ctx) => ctx.reply("Send me a sticker"));
-bot.on(message("sticker"), (ctx) => ctx.reply("👍"));
-bot.hears("hi", (ctx) => ctx.reply("Hey there"));
-bot.launch();
-
-// Enable graceful stop
-process.once("SIGINT", () => bot.stop("SIGINT"));
-process.once("SIGTERM", () => bot.stop("SIGTERM"));
+bot.launch(() => {
+  console.log("GDG Bot started!");
+});
+bot.start((ctx) => {
+  ctx.reply("welcome to GDG, what can we help you with today?", {
+    reply_markup: {
+      inline_keyboard: [
+        [
+          { text: "Activities 🎬", callback_data: "activities" },
+          { text: "Social Media 👤", callback_data: "socials" },
+        ],
+        [
+          { text: "Suggest Improvements 📝", callback_data: "suggest" },
+          { text: "Discord 💻", callback_data: "discord" },
+        ],
+        [
+          { text: "About 🔍", callback_data: "about" },
+          { text: "Collaborators 🤝", callback_data: "collabs" },
+        ],
+        [{ text: "Join the Team 🙌", callback_data: "join" }],
+      ],
+    },
+  });
+});
