@@ -1,6 +1,6 @@
 import { Menu } from "@grammyjs/menu";
 
-import activitiesMenu from "./Activities.js";
+import activitiesMenu from "./activitiesMenu.js";
 
 const mainMenu = new Menu("mainMenu")
   .submenu("Activities 🏋️‍♂️","activitiesMenu")
