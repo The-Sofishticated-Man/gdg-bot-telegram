@@ -13,5 +13,5 @@ const aboutMenu = new Menu("aboutMenu")
   .row()
   .back("Back 👈");
 
-  aboutMenu.register(teamMenu);
+aboutMenu.register(teamMenu);
 export default aboutMenu;
